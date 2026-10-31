@@ -10,7 +10,7 @@ print(sorted(['bob', 'About', 'Zoo'], key=str.lower))  # ['About', 'bob', 'Zoo']
 seqs = ['ACGT', 'GGCC', 'A']
 print(list(map(str.lower, seqs)))                      # ['acgt', 'ggcc', 'a']
 print(list(filter(lambda s: len(s) > 2, seqs)))        # ['ACGT', 'GGCC']
-# 两个返回的都是生成器，想看见结果要 list() 一下
+# 两个返回的都是迭代器，想看见结果要 list() 一下
 
 
 
@@ -35,4 +35,4 @@ print(''.join(map(str, [1, 2, 3])))                    # 123
 #---- 今天踩的坑 ----
 # key=lambda t: -t[1]      -> 只对数字有效；换成 reverse=True 才通用
 # ''.join(list(map(...)))  -> list() 多余，join 直接接受 map 对象
-# filter 里的函数用 yield  -> 必须返回 True/False，否则生成器对象永远为真，全部放行
+# filter 里的函数用 yield  -> 必须返回值为True/False类，否则生成器对象永远为真，全部放行
